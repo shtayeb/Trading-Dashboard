@@ -1,9 +1,5 @@
 const router = require("express").Router();
-const {
-  // verifyToken,
-  verifyTokenAndAuth,
-  // verifyTokenAndAdmin,
-} = require("./verifyToken");
+const { verifyTokenAndAuth } = require("./verifyToken");
 const Currency = require("../models/Currency");
 
 // create/update currency

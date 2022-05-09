@@ -1,12 +1,12 @@
-import "./featuredInfo.css";
-import { ArrowUpward, DeleteOutline, Edit } from "@material-ui/icons";
+import "./currencycards.css";
+import { DeleteOutline, Edit } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { IconButton, Snackbar } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 
 import { useNavigate } from "react-router-dom";
-export default function FeaturedInfo() {
+export default function CurrencyCards() {
   const [data, setData] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
   const [open, setOpen] = useState(false);
@@ -81,12 +81,12 @@ export default function FeaturedInfo() {
             <div className="featuredItem" key={item._id}>
               <span className="featuredTitle">{item.Symbol}</span>
               <div className="featuredMoneyContainer">
-                <span className="featuredMoney">{item.InitialPrice}</span>
-                <span className="featuredMoneyRate">
-                  +2.4 <ArrowUpward className="featuredIcon" />
-                </span>
+                <span className="featuredMoney">${item.InitialPrice}</span>
+                <span className="featuredMoneyRate">Initial Price</span>
               </div>
-              <span className="featuredSub">Compared to last month</span>
+              <span className="featuredSub">
+                Sellable: {item.AmountSellable}
+              </span>
               <div className="actionButtons">
                 <IconButton
                   size="small"

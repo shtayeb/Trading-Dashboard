@@ -5,7 +5,6 @@ const cors = require("cors");
 
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
-const productRoute = require("./routes/product");
 
 const currencyRoute = require("./routes/currency");
 const tradeRoute = require("./routes/trade");
@@ -29,15 +28,14 @@ app.use(express.json());
 app.use(cors());
 app.use("/api/user", userRoute);
 app.use("/api/auth", authRoute);
-app.use("/api/product", productRoute);
 
 app.use("/api/currencies", currencyRoute);
 app.use("/api/trade", tradeRoute);
 
-// app.use(express.static(path.join(__dirname, "/ecommerce-front/build")));
+// app.use(express.static(path.join(__dirname, "/admin/build")));
 
 // app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "/ecommerce-front/build", "index.html"));
+//   res.sendFile(path.join(__dirname, "/admin/build", "index.html"));
 // });
 
 app.listen(process.env.PORT || 5000, () => {

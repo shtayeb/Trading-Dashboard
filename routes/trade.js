@@ -1,9 +1,5 @@
 const router = require("express").Router();
-const {
-  verifyToken,
-  verifyTokenAndAuth,
-  verifyTokenAndAdmin,
-} = require("./verifyToken");
+const { verifyTokenAndAuth } = require("./verifyToken");
 const Trade = require("../models/Trade");
 
 // a function which gets the trade logs from the database symbol wise and with the given date range
@@ -23,12 +19,12 @@ router.get("/log", verifyTokenAndAuth, async (req, res) => {
   startDate = lastWeek;
   endDate = tomorrow;
 
-  //in case "from" is not provided we take last week
+  //in case "from" is provided we take the value as the start date
   if (from) {
     console.log("we have from");
     startDate = new Date(from).toISOString();
   }
-  // in case 'to' is not provided we take tomorrow
+  // in case 'to' is provided we take the value as end date
   if (to) {
     console.log("we have to");
     endDate = new Date(to).toISOString();
@@ -57,7 +53,7 @@ router.get("/log", verifyTokenAndAuth, async (req, res) => {
 });
 
 // create a trade
-router.post("/", verifyTokenAndAdmin, async (req, res) => {
+router.post("/", verifyTokenAndAuth, async (req, res) => {
   const trade = new Trade(req.body);
   try {
     const result = await trade.save();

@@ -1,7 +1,6 @@
 import "./App.css";
 import { useSelector } from "react-redux";
 
-// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   BrowserRouter as Router,
   Routes,
@@ -18,7 +17,7 @@ function App() {
     (state) => state.persistedReducer.currentUser
   );
 
-  axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL_DEV;
+  axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
   axios.defaults.headers["token"] = `Bearer ${currentUser?.accessToken}`;
 
   return (

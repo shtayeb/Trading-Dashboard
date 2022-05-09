@@ -72,7 +72,7 @@ export default function TradeLogList() {
     {
       field: "createdAt",
       headerName: "Traded At",
-      width: 120,
+      width: 200,
       renderCell: (params) => {
         return (
           <div className="userListUser">
@@ -141,8 +141,7 @@ export default function TradeLogList() {
         getRowId={(row) => row._id}
         columns={columns}
         pageSize={8}
-
-        // checkboxSelection
+        checkboxSelection
       />
     </div>
   );
