@@ -69,7 +69,6 @@ router.delete("/:cid", verifyTokenAndAuth, async (req, res) => {
 router.get("/", verifyTokenAndAuth, async (req, res) => {
   try {
     let currencies;
-    //   currencies = await Product.find().sort({ createdAt: -1 }).limit(1);
     currencies = await Currency.find();
 
     res.status(200).json(currencies);

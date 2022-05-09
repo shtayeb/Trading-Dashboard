@@ -13,6 +13,7 @@ router.post("/register", async (req, res) => {
     ).toString(),
     name: req.body.name,
     img: req.body.img,
+    isAdmin: true,
   });
   try {
     const savedUser = await newUser.save();

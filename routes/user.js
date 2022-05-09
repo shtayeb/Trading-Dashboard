@@ -48,7 +48,7 @@ router.get("/find/:userId", verifyTokenAndAdmin, async (req, res) => {
 });
 
 //Get all users
-router.get("/", verifyTokenAndAdmin, async (req, res) => {
+router.get("/", verifyTokenAndAuth, async (req, res) => {
   const query = req.query.new;
   try {
     const users = query
@@ -62,7 +62,7 @@ router.get("/", verifyTokenAndAdmin, async (req, res) => {
 });
 
 // Get user stats
-router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
+router.get("/stats", verifyTokenAndAuth, async (req, res) => {
   // total no of users per month
   const date = new Date();
   const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
