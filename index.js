@@ -32,6 +32,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/currencies", currencyRoute);
 app.use("/api/trade", tradeRoute);
 
+// to combine all of them together
 app.use(express.static(path.join(__dirname, "/admin/build")));
 
 app.get("*", (req, res) => {
