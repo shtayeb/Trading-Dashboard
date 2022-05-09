@@ -32,11 +32,11 @@ app.use("/api/auth", authRoute);
 app.use("/api/currencies", currencyRoute);
 app.use("/api/trade", tradeRoute);
 
-// app.use(express.static(path.join(__dirname, "/admin/build")));
+app.use(express.static(path.join(__dirname, "/admin/build")));
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "/admin/build", "index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/admin/build", "index.html"));
+});
 
 app.listen(process.env.PORT || 5000, () => {
   console.log("Server is running on port 10000");
